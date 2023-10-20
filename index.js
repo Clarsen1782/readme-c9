@@ -8,38 +8,38 @@ inquirer
     .prompt([
         {
             type: 'input',
-            name: 'quest1',
+            name: 'title',
             message: 'What is the Title?',
         },
         {
             type: 'input',
-            name: 'quest2',
+            name: 'description',
             message: 'How is the application installed?',
         },
         {
             type: 'input',
-            name: 'quest3',
-            message: 'How should it be used?',
+            name: 'install',
+            message: 'How is the application installed?',
         },
         {
             type: 'input',
-            name: 'quest4',
+            name: 'usage',
+            message: 'How should the application be used?',
+        },
+        {
+            type: 'input',
+            name: 'con1',
             message: 'Where there any collaborators?',
         },
         {
             type: 'input',
-            name: 'quest5',
+            name: 'con2',
             message: 'Where there any third-party assets?',
         },
         {
             type: 'input',
-            name: 'quest6',
+            name: 'con3',
             message: 'Did you follow any tutorials?',
-        },
-        {
-            type: 'input',
-            name: 'quest7',
-            message: 'Contributor Covenant?',
         },
         {
             type: 'checkbox',
@@ -60,26 +60,25 @@ inquirer
         );
     });
     const generateREADME = (answers) =>
-    `# ${answers.quest1}
+    `# ${answers.title}
   
     ## Description
-    ${ }
+    ${answers.description}
     
     ## Installation
-    ${answers.quest2}
+    ${answers.install}
     
     ## Usage
-    ${answers.quest3}
+    ${answers.usage}
     
     
     ## Contributing
-    ${answers.quest4}
-    ${answers.quest5}
-    ${answers.quest6}
-    ${answers.quest7}
+    ${answers.con1}
+    ${answers.con2}
+    ${answers.con3}
     
     ## License
-    ${data.license}`;
+    ${answers.license}`;
 
 
     /*const questions = [];
