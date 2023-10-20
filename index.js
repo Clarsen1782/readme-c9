@@ -46,8 +46,8 @@ inquirer
             name: 'license',
             message: 'Check which License',
             choices: ['MIT', 'NONE'],
-            validate: (licenseInput) => {
-                if (licenseInput) {
+            validate: (generateMarkdown) => {
+                if (generateMarkdown) {
                     return true;
                 }
             }
@@ -60,31 +60,26 @@ inquirer
         );
     });
     const generateREADME = (answers) =>
-    `#${answers.quest1}
+    `# ${answers.quest1}
+  
+    ## Description
+    ${ }
     
     ## Installation
-    
     ${answers.quest2}
-
+    
     ## Usage
-    
     ${answers.quest3}
-
-    ## Credits
-
-    ${answers.quest4}
     
-    ${answers.quest5}
-        
-    ${answers.quest6}
-
+    
     ## Contributing
-    
+    ${answers.quest4}
+    ${answers.quest5}
+    ${answers.quest6}
     ${answers.quest7}
     
     ## License
-
-    ${answers.quest8}`;
+    ${data.license}`;
 
 
     /*const questions = [];
