@@ -1,6 +1,7 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer');
 const fs = require('fs');
+const generateMarkdown = require('./generateMarkdown');
 
 // TODO: Create an array of questions for user input
 inquirer
@@ -41,9 +42,15 @@ inquirer
             message: 'Contributor Covenant?',
         },
         {
-            type: 'input',
-            name: 'quest8',
-            message: 'Link to License',
+            type: 'checkbox',
+            name: 'license',
+            message: 'Check which License',
+            choices: ['MIT', 'NONE'],
+            validate: (licenseInput) => {
+                if (licenseInput) {
+                    return true;
+                }
+            }
         },
     ])
     .then((answers) => {
@@ -78,3 +85,18 @@ inquirer
     ## License
 
     ${answers.quest8}`;
+
+
+    /*const questions = [];
+//Add type, name, and message for each question
+//add questions: added sections (discription, usage, license, ect)
+
+// TODO: Create a function to write README file
+function writeToFile(fileName, data) {}
+//Use FS module to write data and file 
+
+// TODO: Create a function to initialize app
+function init() {}
+
+// Function call to initialize app
+init();*/
