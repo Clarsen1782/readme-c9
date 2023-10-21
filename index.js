@@ -14,7 +14,7 @@ inquirer
         {
             type: 'input',
             name: 'description',
-            message: 'How is the application installed?',
+            message: 'What is the description?',
         },
         {
             type: 'input',
