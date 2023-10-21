@@ -6,45 +6,53 @@ const inquirer = require('inquirer');
 // TODO: Create an array of questions for user input
 const questions = [
     {
-        question: 'What is the Title?',
-        variable: 'title',
+        type: 'input',
+        name: 'title',
+        message: 'What is the Title?',
     },
     {
-        question: 'What is the description?',
-        variable: 'description',
+        type: 'input',
+        name: 'description',
+        message: 'What is the description?',
     },
     {
-        question: 'How is the application installed?',
-        variable: 'installed',
+        type: 'input',
+        name: 'install',
+        message: 'How is the application installed?',
     },
     {
-        question: 'How should the application be used?',
-        variable: 'used',
+        type: 'input',
+        name: 'usage',
+        message: 'How should the application be used?',
     },
     {
-        question: 'Where there any collaborators?',
-        variable: 'collaborators',
+        type: 'input',
+        name: 'con1',
+        message: 'Where there any collaborators?',
     },
     {
-        question: 'Where there any third-party assets?',
-        variable: 'third-party',
+        type: 'input',
+        name: 'con2',
+        message: 'Where there any third-party assets?',
     },
     {
-        question: 'Did you follow any tutorials?',
-        variable: 'tutorials',
+        type: 'input',
+        name: 'con3',
+        message: 'Did you follow any tutorials?',
     },
+
 ];
 
 // TODO: Create a function to write README file
-function writeToFile(questions) {
-    return fs.writeToFileSync(path.join(process.cwd(), questions));
+function writeToFile(questions, data) {
+    return fs.writeToFileSync(path.join(process.cwd(), questions), data);
 }
 
 // TODO: Create a function to initialize app
 function init() {
     inquirer.prompt(questions).then((responses) => {
         console.log('Creating');
-        writeToFile('./readme.md', generateMarkdown(data.title))
+        writeToFile('./readme.md', generateMarkdown(data))
     })
 }
 
